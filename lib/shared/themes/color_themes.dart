@@ -1,6 +1,3 @@
-// Flutter imports:
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
 class Pallete {
@@ -15,7 +12,19 @@ class Pallete {
 }
 
 abstract class ColorThemes {
-
+  // ======= GENERIC ========
+  static const Color pureWhite = Color(0xFFFFFFFF);
+  static const Color spotsBlack = Color(0xFF1D202B);
+  // ======= NEUTRAL ========
+  static const Color lightGrey = Color(0xFFF0EFF1);
+  static const Color darkGrey = Color(0xFF3A3D4A);
+  // ======= PRIMARY ========
+  static const Color primary = Color(0xFF8017FF);
+  static const Color secondaryText = Color(0xFFACA4B6);
+  // ======= UTILITY ========
+  static const Color success = Color(0xFF00C165);
+  static const Color alert = Color(0xFFDC2626);
+  static const Color warning = Color(0xFFFB923C);
 }
 
 extension ColorExtension on Color {
