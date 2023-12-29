@@ -44,6 +44,7 @@ abstract class ITextTheme {
   TextStyle get passwordRequirement;
 }
 
+// ignore: unused_element
 class _CTextTheme implements ITextTheme {
   factory _CTextTheme({
     final FontWeight? weight,

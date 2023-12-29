@@ -10,8 +10,6 @@ extension DateTimeExtension on DateTime {
 
   String get toServerFormatWithoutTime =>
       DateFormat("yyyy-MM-dd'T'00:00:00.000'Z'").format(this);
-
- 
 }
 
 extension DateRangeExtension on DateTimeRange {
@@ -27,7 +25,7 @@ extension DateRangeExtension on DateTimeRange {
     'September',
     'October',
     'November',
-    'December'
+    'December',
   ];
   String get toFormattedString =>
       '${start.day} ${_months[start.month - 1].substring(0, 3)} - ${end.day} ${_months[end.month - 1].substring(0, 3)}';
