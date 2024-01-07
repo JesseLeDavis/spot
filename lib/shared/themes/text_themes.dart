@@ -1,190 +1,125 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project_template_firebase/shared/themes/color_themes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-// Project imports:
+abstract class TextThemes {
+  static String get fontFamily => GoogleFonts.inter().fontFamily ?? '';
 
-abstract class TextThemes {}
+  static _ITextTheme get pureWhite => _CTextTheme(color: ColorThemes.pureWhite);
 
-abstract class ITextTheme {
-  ///fontSize: 40
-  TextStyle get header1;
+  static _ITextTheme get lightGrey => _CTextTheme(color: ColorThemes.lightGrey);
 
-  ///fontSize: 32
-  ///fontWeight: FontWeight.w400
-  TextStyle get header2;
+  static _ITextTheme get spotsBlack =>
+      _CTextTheme(color: ColorThemes.spotsBlack);
 
-  ///fontSize: 24
-  TextStyle get header3;
+  static _ITextTheme get secondaryText =>
+      _CTextTheme(color: ColorThemes.secondaryText);
 
-  ///fontSize: 20
-  TextStyle get subtitle1;
+  static _ITextTheme get primaryColor =>
+      _CTextTheme(color: ColorThemes.primary);
 
-  ///fontSize: 20
-  ///fontWeight: FontWeight.w400
-  TextStyle get subtitle2;
+  static _ITextTheme get darkGrey => _CTextTheme(color: ColorThemes.darkGrey);
 
-  ///fontSize: 16
-  TextStyle get body1;
+  static _ITextTheme get error => _CTextTheme(color: ColorThemes.alert);
+}
 
-  ///fontSize: 16
-  ///fontWeight: FontWeight.w400
-  TextStyle get body2;
+abstract class _ITextTheme {
+  TextStyle get largeTitle;
 
-  ///fontSize: 12
-  TextStyle get caption1;
+  TextStyle get title1;
 
-  ///fontSize: 14
-  TextStyle get caption2;
+  TextStyle get title2;
 
-  ///fontSize: 10
-  TextStyle get caption3;
+  TextStyle get headline;
 
-  TextStyle get boldCaption;
+  TextStyle get body;
 
-  TextStyle get passwordRequirement;
+  TextStyle get footnote;
 }
 
 // ignore: unused_element
-class _CTextTheme implements ITextTheme {
+class _CTextTheme implements _ITextTheme {
   factory _CTextTheme({
     final FontWeight? weight,
     final Color? color,
   }) {
     final _base = TextStyle(
-      fontFamily: GoogleFonts.outfit().fontFamily,
+      fontFamily: GoogleFonts.inter().fontFamily,
       fontWeight: weight,
       color: color,
     );
 
-    final caption1 = _base.copyWith(
-      fontWeight: FontWeight.w400,
-      fontSize: 12,
-    );
-
-    final caption3 = _base.copyWith(
-      fontWeight: FontWeight.w400,
-      fontSize: 10,
-    );
-
-    final caption2 = _base.copyWith(
-      fontWeight: FontWeight.w400,
-      fontSize: 14,
-    );
-
-    final body1 = _base.copyWith(
-      fontSize: 16,
-    );
-
-    final passwordRequirement = _base.copyWith(
-      fontSize: 27,
-    );
-
-    final body2 = _base.copyWith(
-      fontWeight: FontWeight.w400,
-      fontSize: 16,
-    );
-
-    final subtitle1 = _base.copyWith(
-      fontSize: 20,
-    );
-
-    final subtitle2 = _base.copyWith(
-      fontWeight: FontWeight.w400,
-      fontSize: 20,
-    );
-
-    final header1 = _base.copyWith(
-      fontSize: 40,
-    );
-
-    final header2 = _base.copyWith(
-      fontSize: 32,
-    );
-
-    final header3 = _base.copyWith(
-      fontSize: 24,
-    );
-    final boldCaption = _base.copyWith(
-      fontSize: 21,
+    final largeTitle = _base.copyWith(
+      fontSize: 44,
       fontWeight: FontWeight.w700,
     );
+
+    final title1 = _base.copyWith(
+      fontSize: 22,
+      fontWeight: FontWeight.w700,
+    );
+
+    final title2 = _base.copyWith(
+      fontSize: 20,
+      fontWeight: FontWeight.w700,
+    );
+
+    final headline = _base.copyWith(
+      fontSize: 16,
+      fontWeight: FontWeight.w700,
+    );
+
+    final body = _base.copyWith(
+      fontSize: 16,
+      fontWeight: FontWeight.w400,
+    );
+
+    final footnote = _base.copyWith(
+      fontSize: 13,
+      fontWeight: FontWeight.w300,
+    );
+
     return _CTextTheme._(
-      body1,
-      body2,
-      subtitle1,
-      subtitle2,
-      caption1,
-      caption2,
-      caption3,
-      header1,
-      header2,
-      header3,
-      boldCaption,
-      passwordRequirement,
+      largeTitle,
+      title1,
+      title2,
+      headline,
+      body,
+      footnote,
     );
   }
 
   _CTextTheme._(
-    this._body1,
-    this._body2,
-    this._subtitle1,
-    this._subtitle2,
-    this._caption1,
-    this._caption2,
-    this._caption3,
-    this._header1,
-    this._header2,
-    this._header3,
-    this._boldCaption,
-    this._passwordRequirement,
+    this._footnote,
+    this._headline,
+    this._body,
+    this._largeTitle,
+    this._title1,
+    this._title2,
   );
 
-  final TextStyle _body1;
-  final TextStyle _body2;
-  final TextStyle _subtitle1;
-  final TextStyle _subtitle2;
-  final TextStyle _caption1;
-  final TextStyle _caption2;
-  final TextStyle _caption3;
-  final TextStyle _header1;
-  final TextStyle _header2;
-  final TextStyle _header3;
-  final TextStyle _boldCaption;
-  final TextStyle _passwordRequirement;
+  final TextStyle _footnote;
+  final TextStyle _headline;
+  final TextStyle _body;
+  final TextStyle _largeTitle;
+  final TextStyle _title1;
+  final TextStyle _title2;
 
   @override
-  TextStyle get body1 => _body1;
+  TextStyle get largeTitle => _largeTitle;
 
   @override
-  TextStyle get body2 => _body2;
+  TextStyle get title1 => _title1;
 
   @override
-  TextStyle get subtitle1 => _subtitle1;
+  TextStyle get title2 => _title2;
 
   @override
-  TextStyle get subtitle2 => _subtitle2;
+  TextStyle get headline => _headline;
 
   @override
-  TextStyle get caption1 => _caption1;
+  TextStyle get body => _body;
 
   @override
-  TextStyle get caption2 => _caption2;
-
-  @override
-  TextStyle get caption3 => _caption3;
-
-  @override
-  TextStyle get header1 => _header1;
-
-  @override
-  TextStyle get header2 => _header2;
-
-  @override
-  TextStyle get header3 => _header3;
-
-  @override
-  TextStyle get boldCaption => _boldCaption;
-
-  @override
-  TextStyle get passwordRequirement => _passwordRequirement;
+  TextStyle get footnote => _footnote;
 }

@@ -1,13 +1,13 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_project_template_firebase/features/home_page/home_page.dart';
+import 'package:flutter_project_template_firebase/routes/paths/paths.dart';
 import 'package:go_router/go_router.dart';
 
 List<RouteBase> appRoutes() {
   return [
     GoRoute(
-      path: '/',
-      builder: (context, state) => const Scaffold(
-        backgroundColor: Colors.red,
-      ),
+      path: Paths.homePage.name,
+      name: Paths.homePage.name,
+      builder: (context, state) => const HomePage(),
     ),
   ];
 }
